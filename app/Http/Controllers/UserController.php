@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -38,7 +38,7 @@ class UserController extends Controller
             'nama_user' =>$req->get('nama_user'),
             'username' =>$req->get('username'),
             'role' =>$req->get('role'),
-            'password' =>$req->get('password'),
+            'password' =>Hash::make($req->get('password')),
         ]);
         if($save){
             return Response()->json(['status'=>true,'message' => 'Sukses Menambah User']);

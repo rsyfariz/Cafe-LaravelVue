@@ -11,5 +11,7 @@ class user extends Model
     public $timestamps = false;
     protected $table = "users";
     protected $primaryKey = "id_user";
-    protected $fillable = ['nama_user', 'username', 'role', 'password'];
+    protected $fillable = ['nama_user', 'username', 'role', 'password']; 
 }
+
+

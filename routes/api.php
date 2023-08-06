@@ -6,6 +6,7 @@ use App\http\Controllers\MejaController;
 use App\http\Controllers\MenuController;
 use App\http\Controllers\UserController;
 use App\http\Controllers\TransaksiController;
+use App\http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,6 +26,7 @@ Route::get('/getMenu',[Menucontroller::class,'getMenu']);
 Route::get('/getMenu/{id_menu}',[Menucontroller::class,'getsemuamenu']);
 Route::post('/createMenu',[MenuController::class , 'createMenu']);
 Route::put('/updateMenu/{id_menu}',[MenuController::class , 'updateMenu']);
+Route::post('/updategambar/{id}',[MenuController::class, 'updategambar']);
 Route::delete('/deleteMenu/{id_menu}',[MenuController::class , 'deleteMenu']);
 
 Route::get('/getMeja',[Mejacontroller::class,'getMeja']);
@@ -60,3 +62,5 @@ Route::get('/gethistory/{code}',[TransaksiController::class, 'selecthistory']);
  Route::get('/gettgl/{date}',[TransaksiController::class, 'gettgl']);
  Route::get('/getbulan/{month}',[TransaksiController::class, 'getbulan']);
  Route::get('/gettotal/{code}',[TransaksiController::class, 'total']);
+
+ Route::post('/login',[AuthController::class, 'login']);

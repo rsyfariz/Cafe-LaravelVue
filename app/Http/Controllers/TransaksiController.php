@@ -23,8 +23,8 @@ class TransaksiController extends Controller
 
     public function gethistory(){
         $get = DB::table('history')
-        ->join('user','history.id_user','=','user.id_user')
-        ->orderBy('id_history', 'deskripsi')
+        ->join('users','history.id_user','=','users.id_user')
+        ->orderBy('id_history', 'desc')
         ->get();
         return response()->json($get);
     }

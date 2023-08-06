@@ -84,4 +84,18 @@ class MenuController extends Controller
             return Response()->json(['status'=>false, 'message' => 'Gagal mengubah menu']);
 }
     }
+    public function updategambar(Request $req, $id)
+    {
+        $gambar = time() . '.' . $req->gambar->extension();
+        $req->gambar->move(public_path('images'), $gambar);
+
+        $update =  Menu::where('id_menu', $id)->update([
+            'gambar' => $gambar
+        ]);
+
+        return response()->json([
+            "Message" => "Berhasil",
+            "Result" => $update
+        ]);
+    }
 }
